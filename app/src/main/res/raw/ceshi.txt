@@ -1,0 +1,40 @@
+
+String str = Environment.getExternalStorageDirectory() + "/";
+        Log.i("externalStorageDirctory", str);
+        SDType = false;
+        String sdpath = readWriteutils.getExternalSDPath(SyntasklongcheerActivity.this, true);
+        Log.i("test", "Description: " + sdpath);
+        File exFile = new File(sdpath + File.pathSeparator + "adb.txt");
+        Log.i(TAG, "Description:isCanRead " + exFile.canRead());
+        Log.i(TAG, "Description:isCanWrite" + exFile.canWrite());
+//        if (exFile.exists() == false) {
+//            try {
+//                exFile.createNewFile();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                dayin("can't create file");
+//            }
+//
+//        }
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        startActivityForResult(intent, 1);
+        //----------------------------------------------------------------------
+//        int permission = ActivityCompat.checkSelfPermission(SyntasklongcheerActivity.this,
+//                "android.permission.MANAGE_DOCUMENTS");
+//        if (permission != PackageManager.PERMISSION_GRANTED) {
+//            // 没有写的权限，去申请写的权限，会弹出对话框
+//            ActivityCompat.requestPermissions(SyntasklongcheerActivity.this, new String[]{Manifest.permission.MANAGE_DOCUMENTS}, REQUEST_EXTERNAL_STORAGE);
+//
+//            String uri2 = "content://com.android.externalstorage.documents/tree/";
+//            String str1 = readWriteutils.getExternalSDPath(SyntasklongcheerActivity.this, true);
+//            String[] a = str1.split("/");
+//            String uri1 = a[a.length - 1];
+//            Log.i(TAG, "mkdirsOnTFCard: uri1:" + uri1);
+//            String URI = uri2 + uri1;
+//            Uri uri = Uri.parse(URI);
+//            //grantUriPermission(,uri,2);
+//            grantUriPermission("longcheer.memory.romygreat", uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+//            mkdirsOnTFCard(uri);
+//            Log.i(TAG, "Description:uritest " + uri.toString());
+        //}private void requestSDCARDUri()
+       // requestSDUri();
